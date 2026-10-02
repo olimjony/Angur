@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Angur.Application\Angur.Application.csproj" />
+  </ItemGroup>
+
+</Project>

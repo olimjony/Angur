@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Angur.Api/Angur.Api.csproj" />
+    <Project Path="src/Angur.Application/Angur.Application.csproj" />
+    <Project Path="src/Angur.Domain/Angur.Domain.csproj" />
+    <Project Path="src/Angur.Infrastructure/Angur.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Angur.Api.IntegrationTests/Angur.Api.IntegrationTests.csproj" />
+    <Project Path="tests/Angur.Application.UnitTests/Angur.Application.UnitTests.csproj" />
+    <Project Path="tests/Angur.ArchitectureTests/Angur.ArchitectureTests.csproj" />
+    <Project Path="tests/Angur.Domain.UnitTests/Angur.Domain.UnitTests.csproj" />
+  </Folder>
+</Solution>
