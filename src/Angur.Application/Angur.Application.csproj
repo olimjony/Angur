@@ -3,4 +3,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Angur.Domain\Angur.Domain.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
 </Project>
