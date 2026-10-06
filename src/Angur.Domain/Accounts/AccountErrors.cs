@@ -15,5 +15,6 @@ public static class AccountErrors
     public static readonly DomainError CurrencyMismatch = new("Account.CurrencyMismatch", "Thee currency of deposit have to match the currency of account", ErrorType.Validation);
     public static readonly DomainError InsufficientFunds = new("Account.InsufficientFunds", "The Account has insufficient funds for withdraw.", ErrorType.Failure);
     public static readonly DomainError NonZeroBalance = new("Account.NonZeroBalance", "The Account cannot be closed due to having funds.", ErrorType.Conflict);
+    public static readonly DomainError NotFound = new("Account.NotFound", "Account was not found.", ErrorType.NotFound);
 
 }
