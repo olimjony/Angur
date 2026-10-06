@@ -40,4 +40,67 @@ public sealed class Account : AggregateRoot<AccountId>
 
         return Result.Success(account);
     }
+
+    public Result Deposit(Money amount)
+    {
+        ArgumentNullException.ThrowIfNull(amount);
+
+        if (Status == AccountStatus.Closed)
+        {
+            return Result.Failure(AccountErrors.AccountClosed);
+        }
+
+        if (!amount.IsPositive)
+        {
+            return Result.Failure(AccountErrors.AmountMustBePositive);
+        }
+
+        if (Currency != amount.Currency)
+        {
+            return Result.Failure(AccountErrors.CurrencyMismatch);
+        }
+
+        Balance += amount;
+
+        Raise(new MoneyDeposited(Id, amount, Balance));
+
+        return Result.Success();
+    }
+
+    public Result Withdraw(Money amount)
+    {
+        ArgumentNullException.ThrowIfNull(amount);
+
+        if (Status == AccountStatus.Closed)
+        {
+            return Result.Failure(AccountErrors.AccountClosed);
+        }
+
+        if (Status == AccountStatus.Frozen)
+        {
+            return Result.Failure(AccountErrors.AccountFrozen);
+        }
+
+        if (!amount.IsPositive)
+        {
+            return Result.Failure(AccountErrors.AmountMustBePositive);
+        }
+
+        if (Currency != amount.Currency)
+        {
+            return Result.Failure(AccountErrors.CurrencyMismatch);
+        }
+
+        if (Balance < amount)
+        {
+            return Result.Failure(AccountErrors.InsufficientFunds);
+        }
+
+        Balance -= amount;
+
+        Raise(new MoneyWithdrawn(Id, amount, Balance));
+
+        return Result.Success();
+    }
+
 }
