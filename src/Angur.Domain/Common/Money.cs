@@ -25,7 +25,7 @@ public sealed record Money
 
         decimal normalized = decimal.Round(amount, currency.MinorUnits);
 
-        if(amount != normalized)
+        if (amount != normalized)
         {
             return Result.Failure<Money>(MoneyErrors.InvalidScale);
         }
@@ -99,5 +99,5 @@ public sealed record Money
         if (left.Currency != right.Currency)
             throw new InvalidOperationException(
                 $"Cannot operate on different currencies: {left.Currency} and {right.Currency}.");
-    }   
+    }
 }

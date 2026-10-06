@@ -27,7 +27,7 @@ public class EntityTests
         // Arrange
         Guid id = Guid.NewGuid();
         TestEntity entity = new(id);
-        OtherEntity other = new (id);
+        OtherEntity other = new(id);
 
         // Act
         bool areEqual = entity.Equals(other);
@@ -80,7 +80,7 @@ public class EntityTests
 
         // Assert
         Assert.True(areEqual);
-        
+
     }
 
     [Fact]
@@ -90,7 +90,7 @@ public class EntityTests
         Guid id = Guid.NewGuid();
         TestEntity entity1 = new TestEntity(id);
         TestEntity entity2 = new TestEntity(id);
-        
+
         // Act
         bool areEqual = entity1 == entity2;
 
@@ -98,7 +98,7 @@ public class EntityTests
         Assert.True(areEqual);
     }
 
-    
+
     [Fact]
     public void GetHashCode_EqualEntities_ReturnSameHash()
     {
@@ -106,7 +106,7 @@ public class EntityTests
         Guid id = Guid.NewGuid();
         TestEntity entity1 = new TestEntity(id);
         TestEntity entity2 = new TestEntity(id);
-        
+
         // Act
         bool areEqual = entity1.GetHashCode() == entity2.GetHashCode();
 
@@ -116,5 +116,5 @@ public class EntityTests
 
     private sealed class TestEntity(Guid id) : Entity<Guid>(id);
 
-    private sealed class OtherEntity(Guid id): Entity<Guid>(id);
+    private sealed class OtherEntity(Guid id) : Entity<Guid>(id);
 }

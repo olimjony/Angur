@@ -16,19 +16,19 @@ public sealed record FullName
 
     public static Result<FullName> Create(string? firstName, string? lastName)
     {
-        if(string.IsNullOrWhiteSpace(firstName))
+        if (string.IsNullOrWhiteSpace(firstName))
         {
             return Result.Failure<FullName>(FullNameErrors.FirstNameRequired);
         }
 
-        if(string.IsNullOrWhiteSpace(lastName))
+        if (string.IsNullOrWhiteSpace(lastName))
         {
             return Result.Failure<FullName>(FullNameErrors.LastNameRequired);
         }
 
         string trimmedFirstName = firstName.Trim(), trimmedLastName = lastName.Trim();
 
-        if(trimmedFirstName.Length > MaxPartLength || trimmedLastName.Length > MaxPartLength)
+        if (trimmedFirstName.Length > MaxPartLength || trimmedLastName.Length > MaxPartLength)
         {
             return Result.Failure<FullName>(FullNameErrors.TooLong);
         }

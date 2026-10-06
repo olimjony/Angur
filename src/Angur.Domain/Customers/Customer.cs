@@ -70,7 +70,7 @@ public sealed class Customer : AggregateRoot<CustomerId>
         return Result.Success();
     }
 
-    
+
     public Result RejectKyc(string? reason, DateTimeOffset now)
     {
         if (KycStatus != KycStatus.Pending)

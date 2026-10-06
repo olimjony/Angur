@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+
 using Angur.Domain.Abstractions;
 
 namespace Angur.Domain.Customers;
@@ -15,19 +16,19 @@ public sealed partial record Email
 
     public static Result<Email> Create(string? value)
     {
-        if(string.IsNullOrWhiteSpace(value))
+        if (string.IsNullOrWhiteSpace(value))
         {
             return Result.Failure<Email>(EmailErrors.EmailRequired);
         }
 
         string normalized = value.Trim().ToLowerInvariant();
 
-        if(normalized.Length > MaxPartLength)
+        if (normalized.Length > MaxPartLength)
         {
             return Result.Failure<Email>(EmailErrors.TooLong);
         }
 
-        if(!EmailRegex().IsMatch(normalized))
+        if (!EmailRegex().IsMatch(normalized))
         {
             return Result.Failure<Email>(EmailErrors.InvalidFormat);
         }
