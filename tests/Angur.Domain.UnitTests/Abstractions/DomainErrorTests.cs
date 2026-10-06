@@ -13,7 +13,7 @@ public class DomainErrorTests
         Assert.Equal(first, second);
         Assert.NotSame(first, second);
     }
-   
+
     [Fact]
     public void Errors_WithDifferentCode_AreNotEqual()
     {
@@ -38,6 +38,6 @@ public class DomainErrorTests
         Assert.Equal(string.Empty, error.Code);
         Assert.Equal(string.Empty, error.Description);
         Assert.Equal(ErrorType.None, error.ErrorType);
-        
+
     }
 }

@@ -22,9 +22,9 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
     public override int GetHashCode()
         => HashCode.Combine(GetType(), Id);
 
-    public static bool operator == (Entity<TId>? left, Entity<TId>? right)
+    public static bool operator ==(Entity<TId>? left, Entity<TId>? right)
         => Equals(left, right);
 
-    public static bool operator != (Entity<TId>? left, Entity<TId>? right)
+    public static bool operator !=(Entity<TId>? left, Entity<TId>? right)
         => !Equals(left, right);
 }

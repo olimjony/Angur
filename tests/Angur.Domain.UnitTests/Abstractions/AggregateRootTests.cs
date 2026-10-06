@@ -32,7 +32,7 @@ public class AggregateRootTests
 
         // Assert
         Assert.Single(snapshot);
-        Assert.IsType<SomethingHappened>(snapshot[0]);        
+        Assert.IsType<SomethingHappened>(snapshot[0]);
     }
 
     [Fact]
@@ -47,7 +47,7 @@ public class AggregateRootTests
         aggregate.ClearDomainEvents();
 
         // Assert
-        Assert.Empty(aggregate.GetDomainEvents());        
+        Assert.Empty(aggregate.GetDomainEvents());
     }
 
     [Fact]
