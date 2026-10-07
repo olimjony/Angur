@@ -22,6 +22,14 @@ public sealed class Customer : AggregateRoot<CustomerId>
         KycStatus = KycStatus.Pending;
     }
 
+#pragma warning disable CS8618 // Used only by EF Core when loading from the database.
+    private Customer()
+        : base(default)
+    {
+    }
+#pragma warning restore CS8618
+
+
     public FullName Name { get; private set; }
     public Email Email { get; private set; }
     public DateOnly DateOfBirth { get; private set; }

@@ -18,6 +18,14 @@ public sealed class Account : AggregateRoot<AccountId>
         Status = AccountStatus.Active;
     }
 
+#pragma warning disable CS8618 // Used only by EF Core when loading from the database.
+    private Account()
+        : base(default)
+    {
+    }
+#pragma warning restore CS8618
+
+
     public CustomerId CustomerId { get; private set; }
     public AccountNumber Number { get; private set; }
     public Money Balance { get; private set; }
