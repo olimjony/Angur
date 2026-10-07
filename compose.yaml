@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: angur-postgres
+    environment:
+      POSTGRES_DB: angur
+      POSTGRES_USER: angur
+      POSTGRES_PASSWORD: angur_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - angur-postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U angur -d angur"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  angur-postgres-data:
