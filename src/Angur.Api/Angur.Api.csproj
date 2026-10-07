@@ -6,6 +6,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Angur.Application\Angur.Application.csproj" />
     <ProjectReference Include="..\Angur.Infrastructure\Angur.Infrastructure.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
